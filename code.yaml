@@ -1,0 +1,50 @@
+
+
+- !!python/object:__main__.Block
+  type: block declaration
+  name: commands
+  comment: a container, holder for blocks, executed one after another, from top to bottom
+  keywords: order
+
+- !!python/object:__main__.Block
+  type: block declaration
+  name: parallel
+  comment: contains items executed in parallel, in no specific order
+
+- !!python/object:__main__.Block
+  type: block declaration
+  name: text
+
+- !!python/object:__main__.Block
+  type: block declaration
+  name: function definition
+  slots:
+    - !!python/object:__main__.Block
+      name: name
+      type: text
+    - !!python/object:__main__.Block
+      name: body
+      type: commands
+
+- !!python/object:__main__.Block
+  type: function definition
+  slots:
+    
+      name: name
+      value:
+        - !!python/object:__main__.Block
+        type: text
+        value: print
+
+  type: function call
+  slots:
+    - name: name
+      value:
+        type: text
+        value: print
+    - name: argument
+      value:
+        type: text
+        value: banana!
+
+- type: object declaration
