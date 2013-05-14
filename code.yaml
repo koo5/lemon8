@@ -1,22 +1,27 @@
 
 
 - !!python/object:__main__.Block
-  type: block declaration
+  type: block family
+  name: functions
+
+- !!python/object:__main__.Block
+  type: block kind
+  family: functions
   name: commands
   comment: a container, holder for blocks, executed one after another, from top to bottom
   keywords: order
 
 - !!python/object:__main__.Block
-  type: block declaration
+  type: block kind
   name: parallel
   comment: contains items executed in parallel, in no specific order
 
 - !!python/object:__main__.Block
-  type: block declaration
+  type: block kind
   name: text
 
 - !!python/object:__main__.Block
-  type: block declaration
+  type: block kind
   name: function definition
   slots:
     - !!python/object:__main__.Block
@@ -29,13 +34,13 @@
 - !!python/object:__main__.Block
   type: function definition
   slots:
-    
-      name: name
+    - name: name
       value:
         - !!python/object:__main__.Block
         type: text
         value: print
 
+- !!python/object:__main__.Block
   type: function call
   slots:
     - name: name

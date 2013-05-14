@@ -21,10 +21,6 @@ class Block:
 class Interpreter:
 	def __init__(self, blocks):
 		self.blocks = blocks
-		env=dict()
-
-	def slot_by_name(self, slots, name):
-		return filter(slots, lambda x: return x.name == name)[0]
 
 	def blocks_by_type(self, type):
 		return filter(blocks, lambda x: return (x.type == type))
@@ -32,8 +28,8 @@ class Interpreter:
 	def function_definitions(self):
 		return blocks_by_type("function definition")
 		
-	def function_definition_by_name(self, name):
-		return filter(function_definitions(), lambda x: slot_by_name(x, "name") == name)[0]
+	def function_definition(self, name):
+		return filter(function_definitions(), lambda x: x.slot("name") == name)[0]
 
 	def run(self):
 		run_block(self.blocks[0])
@@ -41,10 +37,15 @@ class Interpreter:
 	def run_block(self,x):
 		print ">", x
 		if x.type == "function call":
-			run_block(slot_by_name(function_definition_by_name(.slots, "code").value)
+			run_block(function_definition(x.slot("name")), "code").value)
 			
-		elif x.type == "if"
-		
+		elif x.type == "if":
+			if run_block("condition")["value"]:
+				run_block("then")["value"]
+			else:
+				run_block("else")["value"]
+				
+
 
 def run():
     Interpreter(yaml.load(open("code.yaml", "r").read())).run()
