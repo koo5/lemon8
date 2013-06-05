@@ -30,6 +30,11 @@
     - !!python/object:__main__.Block
       name: body
       type: commands
+  display:
+    - type: text
+      value: "function"
+    - type: slot
+      value: name
 
 - !!python/object:__main__.Block
   type: function definition

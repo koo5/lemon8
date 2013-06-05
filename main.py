@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-import interpreter2
+import interpreter
 
 
 
